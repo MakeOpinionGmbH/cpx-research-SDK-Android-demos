@@ -1,0 +1,4 @@
+include ':app'
+rootProject.name = "CPXResearchDemo"
+//include ':CPXResearchLib'
+//project(':CPXResearchLib').projectDir = new File(settingsDir, '../../cpx-research-SDK-Android/CPXResearchLib')
