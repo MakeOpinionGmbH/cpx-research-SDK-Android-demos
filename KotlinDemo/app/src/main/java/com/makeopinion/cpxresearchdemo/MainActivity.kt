@@ -69,12 +69,13 @@ class MainActivity : FragmentActivity() {
                 override fun onSurveysUpdated() {
                     val surveys = it.cpxResearch().surveys
                     Log.d("CPX", "surveys updated: $surveys")
+                    it.cpxResearch().removeListener(this)
                 }
 
                 override fun onTransactionsUpdated(unpaidTransactions: List<TransactionItem>) {
                     Log.d("CPX", "transactions updated.")
                     for (item in unpaidTransactions) {
-                        Log.d("CPX", "${item.earningPublisher}")
+                        Log.d("CPX", item.earningPublisher)
                     }
                 }
 
@@ -131,7 +132,7 @@ class MainActivity : FragmentActivity() {
                 .cornerRadius(4f)
                 .cpxCardStyle(CPXCardStyle.SMALL)
                 .fixedCPXCardWidth(146)
-                .currencyPrefixImage(R.drawable.cpx_icon_star)
+                .currencyPrefixImage(com.makeopinion.cpxresearchlib.R.drawable.cpx_icon_star)
                 .hideCurrencyName(false)
                 //.showCurrencyBeforeValue(true)
                 .build()
@@ -144,12 +145,12 @@ class MainActivity : FragmentActivity() {
     private fun switchToNextStyle() {
         currentStyleIndex++
 
-        if (currentStyleIndex == SurveyPosition.values().size)
+        if (currentStyleIndex == SurveyPosition.entries.size)
             currentStyleIndex = 0
 
         (application as? CPXApplication)?.cpxResearch()?.let {
             val style = CPXStyleConfiguration(
-                    SurveyPosition.values()[currentStyleIndex],
+                    SurveyPosition.entries[currentStyleIndex],
                     "New surveys available",
                     20,
                     "#ffffff",

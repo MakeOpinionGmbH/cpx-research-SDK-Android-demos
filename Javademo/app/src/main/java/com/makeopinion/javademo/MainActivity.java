@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements CPXResearchListen
                 .cornerRadius(4f)
                 .cpxCardStyle(CPXCardStyle.SMALL)
                 .fixedCPXCardWidth(146)
-                .currencyPrefixImage(R.drawable.cpx_icon_star) // set your currency image here!!!
+                .currencyPrefixImage(com.makeopinion.cpxresearchlib.R.drawable.cpx_icon_star) // set your currency image here!!!
                 .hideCurrencyName(true)
                 .build();
 

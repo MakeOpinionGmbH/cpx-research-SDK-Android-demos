@@ -33,9 +33,9 @@ class SurveyAdapter(private var surveys: List<SurveyItem>,
 
         fun bindItems(survey: SurveyItem) {
             itemView.tag = survey.id
-            val title = itemView.findViewById(R.id.tv_title) as TextView
-            val subtitle = itemView.findViewById(R.id.tv_subtitle) as TextView
-            val content = itemView.findViewById(R.id.tv_content) as TextView
+            val title: TextView = itemView.findViewById(R.id.tv_title)
+            val subtitle: TextView = itemView.findViewById(R.id.tv_subtitle)
+            val content: TextView = itemView.findViewById(R.id.tv_content)
             title.text = "Id: ${survey.id}"
             subtitle.text = survey.payout
             content.text = StringBuilder()
